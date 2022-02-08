@@ -13,6 +13,7 @@
 
 #https://trinket.io/pygame/bc5595f097?outputOnly=true
 
+#v 2.7.8
 #yes, this was made with a library\nfor graphing data
 
 
@@ -43,49 +44,53 @@ quitcolor = '#eb4034' #red
 bonuscolor1 = '#14e0be'  #plasma blue
 textcolor1 = bonuscolor1#'white'
 textcolor2 = 'black'
+darkmaincolor2 = '#06b85b'
+fakebonuscolor = '#10c2a4'
+
 
 #make start screen bg better
 startcolor = maincolor2
-versioninfo = 'v3.1.3'
+versioninfo = 'v3.1.3 dev ver.'
+#versioninfo = 'v3.1.3'
 
 gametitle = 'Click-Fast'
 subtitle = f'Graphics and Code by: \nLu Bachert\n{versioninfo}'
-
+gameheadertext = f'Click-Fast {versioninfo}'
 
 
 def createinfobtn(win, winSize, r, fontsize, x, y):
   infobtn = lgf.drawCircle(win, x, y, r, maincolor2, maincolor2, 1)
   infotxt = lgf.windowtext(win, x, y, 'Info', 'black')
-  lgf.fancytext(infotxt, 'courier', fontsize, 'normal')
+  lgf.fancytext(infotxt, 'courier', fontsize, 'bold')
   return infobtn, infotxt
 
-def createpabtn(win, winSize, pamenuebtnSize, pamenuetxtSize, pamenueY, pabtnX): #pa = playagain
-  pabtn = lgf.drawCircle(win, pabtnX, pamenueY, pamenuebtnSize, startcolor, startcolor, 1)
-  patxt = lgf.windowtext(win, pabtnX, pamenueY, 'Menue', textcolor2)
-  lgf.fancytext(patxt, 'courier', pamenuetxtSize, 'normal')
+def createpabtn(win, winSize, pamenubtnSize, pamenutxtSize, pamenuY, pabtnX): #pa = playagain
+  pabtn = lgf.drawCircle(win, pabtnX, pamenuY, pamenubtnSize, startcolor, startcolor, 1)
+  patxt = lgf.windowtext(win, pabtnX, pamenuY, 'menu', textcolor2)
+  lgf.fancytext(patxt, 'courier', pamenutxtSize, 'bold')
   
   return pabtn, patxt
 
-def createquitbtn(win, winSize, pamenuebtnSize, pamenuetxtSize, pamenueY, quitbtnX, color):
+def createquitbtn(win, winSize, pamenubtnSize, pamenutxtSize, pamenuY, quitbtnX, color):
   
-  quitbtn = lgf.drawCircle(win, quitbtnX, pamenueY, pamenuebtnSize, color, color, 1)
-  quittxt = lgf.windowtext(win, quitbtnX, pamenueY, 'Quit', textcolor2)
-  lgf.fancytext(quittxt, 'courier', pamenuetxtSize, 'normal')
+  quitbtn = lgf.drawCircle(win, quitbtnX, pamenuY, pamenubtnSize, color, color, 1)
+  quittxt = lgf.windowtext(win, quitbtnX, pamenuY, 'Quit', textcolor2)
+  lgf.fancytext(quittxt, 'courier', pamenutxtSize, 'bold')
   return quitbtn, quittxt
 
 def playorquitbtns(win, winSize):
   
-  pamenuebtnSize = 50
-  pamenuetxtSize = 20
-  pamenueY = winSize * 0.63
+  pamenubtnSize = 50
+  pamenutxtSize = 20
+  pamenuY = winSize * 0.63
   
   pabtnX = winSize * 0.40
   quitbtnX = winSize * 0.60
     
-  pabtn, patxt = createpabtn(win, winSize, pamenuebtnSize, pamenuetxtSize, pamenueY, pabtnX)
+  pabtn, patxt = createpabtn(win, winSize, pamenubtnSize, pamenutxtSize, pamenuY, pabtnX)
   
 
-  quitbtn, quittxt = createquitbtn(win, winSize, pamenuebtnSize, pamenuetxtSize, pamenueY, quitbtnX, quitcolor)
+  quitbtn, quittxt = createquitbtn(win, winSize, pamenubtnSize, pamenutxtSize, pamenuY, quitbtnX, quitcolor)
 
 
   return pabtn, patxt, quitbtn, quittxt
@@ -94,6 +99,7 @@ def playorquitbtns(win, winSize):
 def otheroptions(win, winSize):
   #create buttons
   #fake toggler for now
+  
   pass
   
 
@@ -101,8 +107,8 @@ def otherbuttons(win, winSize):
   
   startbutton = lgf.drawCircle(win, winSize * 0.85, winSize * 0.62, 70, startcolor, startcolor, 1)
   
-  startbuttontext = lgf.windowtext(win, winSize * 0.85, winSize * 0.62, 'start', textcolor2)
-  lgf.fancytext(startbuttontext, 'courier', 25, 'normal')
+  startbuttontext = lgf.windowtext(win, winSize * 0.85, winSize * 0.62, 'Start', textcolor2)
+  lgf.fancytext(startbuttontext, 'courier', 25, 'bold')
   
   infobtn, infotxt = createinfobtn(win, winSize, 46, 20, winSize * 0.66, winSize * 0.66)
 
@@ -209,7 +215,7 @@ def createinfotable(win, winSize):
 
 def drawgamemodestatus(win, winSize, message):
     status = lgf.windowtext(win, winSize * 0.55, winSize * 0.092, message, textcolor2)
-    lgf.fancytext(status, 'courier', 15, 'normal')
+    lgf.fancytext(status, 'courier', 15, 'bold')
     return status
 
 def drawgamemodebox(win, winSize):
@@ -220,7 +226,7 @@ def drawgamemodebox(win, winSize):
 def drawdifficultystatus(win, winSize, message, df):
     if df == None:
       df = lgf.windowtext(win, winSize * 0.25, winSize * 0.092, message, textcolor2)
-      lgf.fancytext(df, 'courier', 15, 'normal')
+      lgf.fancytext(df, 'courier', 15, 'bold')
     else:
       df.setText(message)
     return df
@@ -233,9 +239,9 @@ def drawdifficultybox(win, winSize):
 
 
 
-def makebonuscircle(win, r,  x, y, winSize):
+def makebonuscircle(win, r,  x, y, winSize, color):
   r = r/3.5
-  bonuscircle = lgf.drawCircle(win, x, y, r, bonuscolor1, bonuscolor1, 1)
+  bonuscircle = lgf.drawCircle(win, x, y, r, color, color, 1)
   return bonuscircle
 
 
@@ -280,7 +286,7 @@ def createselectionmenu(win, winSize):
     
   for item in optionlist:
     try:
-      lgf.fancytext(item, 'courier', 15, 'normal')
+      lgf.fancytext(item, 'courier', 16, 'bold')
     except:
       pass
     
@@ -311,8 +317,12 @@ def dificultygraphics(win, winSize):
   statuslist = [gamemodeinfotext, difficultystatusbox, difficultystatus, gamemodestatusbox, gamemodestatus]
   
   
-  gameheadertext = f'Click-Fast {versioninfo}'
-  gameheader = lgf.windowtext(win, winSize * 0.16, winSize * 0.73, gameheadertext, textcolor1)
+  
+  if 'dev' in versioninfo:
+    gameheader = lgf.windowtext(win, winSize * 0.28, winSize * 0.73, gameheadertext, textcolor1)
+  else:
+    gameheader = lgf.windowtext(win, winSize * 0.16, winSize * 0.73, gameheadertext, textcolor1)
+
   lgf.fancytext(gameheader, 'courier', 20, 'italic')
 
   quitbtn, quittxt = createquitbtn(win, winSize, 36, 20, winSize * 0.54, winSize * 0.7, quitcolor)
@@ -376,11 +386,28 @@ def dificultygraphics(win, winSize):
   
   return r, difficulty, gamemode
 
-
+def tittlebgcreate(win, winSize):
+  
+  titlecircle1 = lgf.drawCircle(win, winSize * 0.70, winSize * 0.17, 200, fakecolor, fakecolor, 5)
+  titlecircle2 = lgf.drawCircle(win, winSize * 0.70, winSize * 0.17, 50, fakebonuscolor, fakebonuscolor, 5)
+  
+  titlecircle3 = lgf.drawCircle(win, winSize * 0.20, winSize * 0.45, 130, fakecolor, fakecolor, 5)
+  titlecircle4 = lgf.drawCircle(win, winSize * 0.20, winSize * 0.45, 35, fakebonuscolor, fakebonuscolor, 5)
+  
+  titlecircle5 = lgf.drawCircle(win, winSize * 0.80, winSize * 0.60, 100, fakecolor, fakecolor, 5)
+  titlecircle6 = lgf.drawCircle(win, winSize * 0.80, winSize * 0.60, 25, fakebonuscolor, fakebonuscolor, 5)
+  
+  return [titlecircle1, titlecircle2, titlecircle3, titlecircle4, titlecircle5, titlecircle6]
+  
   
 def tittlegraphics(win, winSize):
   drawnlist = []
   win.setBackground(bgcolor1)
+  
+  
+  #add a background eventually
+  titlebglist = tittlebgcreate(win, winSize)
+  
   
   rectangle1 = lgf.drawRectangle(win, winSize * 0.20, winSize * 0.25, maincolor1, maincolor1, winSize * 0.60, winSize * 0.28)
   
@@ -390,15 +417,13 @@ def tittlegraphics(win, winSize):
   howtostart = lgf.windowtext(win, winSize * 0.5, winSize * 0.6, 'click to start', textcolor1)
   lgf.fancytext(howtostart, 'courier', 18, 'bold italic')
   
-  subtitletext = lgf.windowtext(win, winSize * 0.5, winSize * 0.44, subtitle, textcolor1)
+  subtitletext = lgf.windowtext(win, winSize * 0.5, winSize * 0.44, subtitle, fakebonuscolor)
   lgf.fancytext(subtitletext, 'courier', 16, 'italic')
   
-  #add a background eventually
-  
-  
+
   
   drawnlist = [subtitletext, titletext, rectangle1, howtostart]
-  return drawnlist
+  return drawnlist, titlebglist
 
 
 
@@ -429,8 +454,13 @@ def circleClick(win, circle1, fakecircle, starttime, prevtime, p, misses, missmo
     
     basepasttime = int(getcurrentms())
     predebuff = basepasttime - int(prevtime) 
-    recordedtime = int(predebuff * 0.80)
-    circlemessage = f'Bonus! {recordedtime}'
+    if gamemode == 'Arcade':
+      timelimit += 100
+      recordedtime = predebuff
+    else:
+      recordedtime = int(predebuff * 0.80)
+    
+    circlemessage = f'bonus! {recordedtime}'
     lgf.deleteddrawn(circlesdeletelist)
     misses += 0
     survival = True
@@ -448,7 +478,7 @@ def circleClick(win, circle1, fakecircle, starttime, prevtime, p, misses, missmo
     else:
       pass
     
-    circlemessage = f'Hit! {recordedtime}'
+    circlemessage = f'hit! {recordedtime}'
     lgf.deleteddrawn(circlesdeletelist)
     misses += 0
     survival = True
@@ -466,7 +496,7 @@ def circleClick(win, circle1, fakecircle, starttime, prevtime, p, misses, missmo
     basepasttime = int(getcurrentms())
     predebuff = basepasttime - int(prevtime)
     recordedtime = predebuff * 1.5
-    circlemessage = f'Fake! {recordedtime}'
+    circlemessage = f'fake! {recordedtime}'
     lgf.deleteddrawn(circlesdeletelist)
     misses += 1
     fakes += 1
@@ -477,7 +507,7 @@ def circleClick(win, circle1, fakecircle, starttime, prevtime, p, misses, missmo
     predebuff = int(basepasttime - int(prevtime))
     recordedtime = predebuff * 2# < - instead use the miss modifier on hit
     lgf.deleteddrawn(circlesdeletelist)
-    circlemessage = f'Miss! (no points)' #{recordedtime}
+    circlemessage = f'miss! (no points)' #{recordedtime}
     misses += 1
     survival = False
     
@@ -509,13 +539,16 @@ def main():
   amountplayed = 0
   timestamps = []
   
+  titlebglist = tittlebgcreate(win, winSize)
   gglist = gamegraphics(win, winSize)
 
   win.setBackground(bgcolor1)
   r, difficulty, gamemode = dificultygraphics(win, winSize)
   
   currenttime = getcurrentms()
-
+  
+  lgf.deleteddrawn(titlebglist)
+  
   missestext = missedtextstats(win, winSize, difficulty, misses, fakes, 'no clicks', gamemode, missmod, missestext)
   startingtime = getcurrentms()
 
@@ -536,9 +569,9 @@ def main():
     
     x, y = findrandompoint(winSize, r)
     fake, fakeX, fakeY = makefake(win, r, winSize)
-    fakebonuscircle = makebonuscircle(win, r, fakeX, fakeY, winSize)
+    fakebonuscircle = makebonuscircle(win, r, fakeX, fakeY, winSize, fakebonuscolor)
     circle1 = lgf.drawCircle(win, x, y, r, maincolor1, maincolor1, 1)
-    bonuscircle = makebonuscircle(win, r, x, y, winSize)
+    bonuscircle = makebonuscircle(win, r, x, y, winSize, bonuscolor1)
 
     p = win.getMouse()
 
@@ -670,15 +703,24 @@ if __name__ == '__main__':
   
   winSize = 800
   
-  #if device == 'c':
-    
-  #  win = GraphWin(width=winSize, height=winSize)
-  
-  #else:
+  # ================ window fix ============================
+  '''try:
+    windowsize = input('website(w) or downlaod/window(d): ')
+    if windowsize == 'w':
+      #external window;
+      win = GraphWin(width=winSize, height=winSize * 0.75)
+    else:
+      #trinket window
+      win = GraphWin(width=winSize, height=winSize)
+  except:
+    pass
+  '''
   win = GraphWin(title= f'{gameheadertext}',width=winSize, height=winSize * 0.75)
+  # ==========================================================
 
-  titlegraphicslist = tittlegraphics(win, winSize)
+  titlegraphicslist, titlebglist = tittlegraphics(win, winSize)
   win.getMouse()
+  lgf.deleteddrawn(titlebglist)
   lgf.deleteddrawn(titlegraphicslist)
   
   main()
