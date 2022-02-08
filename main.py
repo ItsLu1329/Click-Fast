@@ -50,7 +50,7 @@ fakebonuscolor = '#10c2a4'
 
 #make start screen bg better
 startcolor = maincolor2
-versioninfo = 'v3.1.3 dev ver.'
+versioninfo = 'v3.1.3'
 #versioninfo = 'v3.1.3'
 
 gametitle = 'Click-Fast'
