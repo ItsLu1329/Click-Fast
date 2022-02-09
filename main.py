@@ -715,7 +715,7 @@ if __name__ == '__main__':
   except:
     pass
   '''
-  win = GraphWin(title= f'{gameheadertext}',width=winSize, height=winSize * 0.75)
+  win = GraphWin(title= f'{gameheadertext}',width=winSize, height=winSize * 0.75, autoflush=False)
   # ==========================================================
 
   titlegraphicslist, titlebglist = tittlegraphics(win, winSize)
