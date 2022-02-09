@@ -694,7 +694,7 @@ def main():
   win.close
 
 
-if __name__ == '__Click-Fast-Launcher__':
+if __name__ == '__main__':
   
   global win, winSize
   
