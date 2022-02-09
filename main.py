@@ -694,8 +694,8 @@ def main():
   win.close
 
 
-#if __name__ == '__main__':
-def start():
+if __name__ == '__main__':
+#def start():
   global win, winSize
   
   #device = input('what device are you on?\nmobile(m) or computer(c): ')
