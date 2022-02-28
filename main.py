@@ -13,7 +13,7 @@
 
 #https://trinket.io/pygame/bc5595f097?outputOnly=true
 
-#v 2.7.8
+#v 3.1.3
 #yes, this was made with a library\nfor graphing data
 
 
@@ -50,7 +50,7 @@ fakebonuscolor = '#10c2a4'
 
 #make start screen bg better
 startcolor = maincolor2
-versioninfo = 'v3.1.3'
+versioninfo = 'v3.1.3 dev ver.'
 #versioninfo = 'v3.1.3'
 
 gametitle = 'Click-Fast'
@@ -635,6 +635,8 @@ def main():
   except:
     averagetime = None
   
+  print(averagetime)
+
   win.getMouse()
   
   try:
@@ -695,7 +697,7 @@ def main():
 
 
 if __name__ == '__main__':
-#def start():
+  
   global win, winSize
   
   #device = input('what device are you on?\nmobile(m) or computer(c): ')
@@ -715,7 +717,7 @@ if __name__ == '__main__':
   except:
     pass
   '''
-  win = GraphWin(title= f'{gameheadertext}',width=winSize, height=winSize * 0.75, autoflush=False)
+  win = GraphWin(title= f'{gameheadertext}',width=winSize, height=winSize * 0.75)
   # ==========================================================
 
   titlegraphicslist, titlebglist = tittlegraphics(win, winSize)
