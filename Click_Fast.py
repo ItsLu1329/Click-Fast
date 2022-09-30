@@ -8,10 +8,6 @@
 #if you do, at least credit me, id apreciate it
 #
 #im fine with you refrencing this code, but please credit me, or this program
-#import pygame
-#https://lbachert-cpavts-net.trinket.io/sites/click-fast
-
-#https://trinket.io/pygame/bc5595f097?outputOnly=true
 
 #v 3.1.3
 #yes, this was made with a library\nfor graphing data
