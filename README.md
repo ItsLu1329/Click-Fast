@@ -4,6 +4,8 @@
 psssst there will soon be 2 more gamemodes :)
 
 
+# There will soon be a .exe file
+
 YOU WILL NO LONGER NEED TO INSTALL PYTHON OR ANYTHING JUST FOLLOW THE DIRECTIONS IN THE 'READ_ME.txt' file
 
 or just view it here;
