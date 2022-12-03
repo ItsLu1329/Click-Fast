@@ -1,5 +1,9 @@
 # Click-Fast
 
+Hai, its Lu! 
+
+the creator of Click-Fast
+
 
 psssst there will soon be 2 more gamemodes :)
 
@@ -9,11 +13,6 @@ psssst there will soon be 2 more gamemodes :)
 YOU WILL NO LONGER NEED TO INSTALL PYTHON OR ANYTHING JUST FOLLOW THE DIRECTIONS IN THE 'READ_ME.txt' file
 
 or just view it here;
-
-
-Hai, its Lu! 
-
-the creator of Click-Fast
 
 
 
